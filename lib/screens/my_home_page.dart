@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:payment_app_from_scratch/component/colors.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -43,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
+          fit: BoxFit.fitHeight,
           image: AssetImage('images/background.png'),
         ),
       ),
