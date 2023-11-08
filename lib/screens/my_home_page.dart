@@ -32,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Stack(
         children: [
           _mainBackground(),
+          _curveImageContainer(),
         ],
       ),
     );
@@ -47,5 +48,22 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     ));
+  }
+
+  _curveImageContainer() {
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: 0,
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.13,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fitHeight,
+            image: AssetImage('images/curve.png'),
+          ),
+        ),
+      ),
+    );
   }
 }
