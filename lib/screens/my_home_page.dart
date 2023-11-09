@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app_from_scratch/component/colors.dart';
+import 'package:payment_app_from_scratch/screens/payment_page.dart';
 import 'package:payment_app_from_scratch/widgets/buttons.dart';
 import 'package:payment_app_from_scratch/widgets/large_button.dart';
 import 'package:payment_app_from_scratch/widgets/text_size.dart';
+import 'package:get/get.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -33,11 +35,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _payButton() {
     return Positioned(
-        bottom: 20,
-        child: AppLargeButton(
-          text: 'Pay All Bills',
-          textColor: Colors.white,
-        ));
+      bottom: 20,
+      child: AppLargeButton(
+        text: 'Pay All Bills',
+        textColor: Colors.white,
+        onTap: () {
+          Get.to(
+            () => PaymentPage(),
+          );
+        },
+      ),
+    );
   }
 
   //22:30 finished
@@ -204,8 +212,36 @@ class _MyHomePageState extends State<MyHomePage> {
           _mainBackground(),
           _curveImageContainer(),
           _buttonContainer(),
+          _textContainer(),
         ],
       ),
+    );
+  }
+
+  _textContainer() {
+    return Stack(
+      children: [
+        Positioned(
+          left: 0,
+          top: 100,
+          child: Text(
+            'My Bills',
+            style: TextStyle(
+                fontSize: 70,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF293952)),
+          ),
+        ),
+        Positioned(
+          left: 40,
+          top: 80,
+          child: Text(
+            'My Bills',
+            style: TextStyle(
+                fontSize: 50, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+        ),
+      ],
     );
   }
 
@@ -281,6 +317,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              //todo stopped 2:06:14
                               AppButtons(
                                 icon: Icons.cancel,
                                 iconColor: AppColor.mainColor,
