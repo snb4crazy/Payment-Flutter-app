@@ -246,20 +246,34 @@ class _MyHomePageState extends State<MyHomePage> {
     return Positioned(
       bottom: 15,
       right: 58,
-      child: Container(
-        height: 60,
-        width: 60,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/lines.png'),
-          ),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 15,
-              offset: Offset(0, 1),
-              color: Color(0xFF11324d),
+      child: GestureDetector(
+        onTap: () {
+          showModalBottomSheet<dynamic>(
+              isScrollControlled: true,
+              backgroundColor: Colors.grey.withOpacity(0.5),
+              barrierColor: Colors.transparent,
+              context: context,
+              builder: (BuildContext bc) {
+                return Container(
+                  height: MediaQuery.of(context).size.height - 240,
+                );
+              });
+        },
+        child: Container(
+          height: 60,
+          width: 60,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/lines.png'),
             ),
-          ],
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 15,
+                offset: Offset(0, 1),
+                color: Color(0xFF11324d),
+              ),
+            ],
+          ),
         ),
       ),
     );
