@@ -108,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         width: 80,
@@ -136,11 +137,28 @@ class _MyHomePageState extends State<MyHomePage> {
                         'Due in 48 hours',
                         style: TextStyle(
                             fontSize: 14,
-                            color: AppColor.mainColor,
+                            color: AppColor.idColor,
                             fontWeight: FontWeight.w700),
                       ),
+                      SizedBox(
+                        height: 10,
+                      )
                     ],
-                  )
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    width: 5,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      color: AppColor.halfOval,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
