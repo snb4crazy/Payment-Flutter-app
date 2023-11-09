@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           margin: const EdgeInsets.only(top: 10, left: 10),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,6 +102,44 @@ class _MyHomePageState extends State<MyHomePage> {
                       text: 'Autopay on DD:MM:YYY', color: AppColor.green),
                   SizedBox(
                     height: 5,
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: AppColor.selectBackground,
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Select',
+                            style: TextStyle(
+                                fontSize: 16, color: AppColor.selectColor),
+                          ),
+                        ),
+                      ),
+                      Expanded(child: Container()),
+                      Text(
+                        '\$12345.00',
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: AppColor.mainColor,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      Text(
+                        'Due in 48 hours',
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: AppColor.mainColor,
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ],
                   )
                 ],
               ),
