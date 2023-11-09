@@ -250,12 +250,24 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: () {
           showModalBottomSheet<dynamic>(
               isScrollControlled: true,
-              backgroundColor: Colors.grey.withOpacity(0.5),
+              backgroundColor: Colors.transparent,
               barrierColor: Colors.transparent,
               context: context,
               builder: (BuildContext bc) {
                 return Container(
                   height: MediaQuery.of(context).size.height - 240,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        bottom: 0,
+                        child: Container(
+                          color: Color(0xFFeef1f4).withOpacity(0.7),
+                          width: MediaQuery.of(context).size.height,
+                          height: MediaQuery.of(context).size.height - 300,
+                        ),
+                      )
+                    ],
+                  ),
                 );
               });
         },
