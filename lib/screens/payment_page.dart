@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payment_app_from_scratch/widgets/buttons.dart';
 
 import '../component/colors.dart';
 
@@ -175,6 +176,27 @@ class PaymentPage extends StatelessWidget {
                       color: AppColor.mainColor,
                       fontWeight: FontWeight.w600),
                 )
+              ],
+            ),
+            SizedBox(
+              height: h * 0.14,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppButtons(
+                  icon: Icons.share_sharp,
+                  onTap: () {},
+                  text: 'Share',
+                ),
+                SizedBox(
+                  width: h * 0.06,
+                ),
+                AppButtons(
+                  icon: Icons.print,
+                  onTap: () {},
+                  text: 'Print',
+                ),
               ],
             )
           ],
