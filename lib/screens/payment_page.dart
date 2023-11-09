@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:payment_app_from_scratch/widgets/buttons.dart';
+import 'package:payment_app_from_scratch/widgets/large_button.dart';
 
 import '../component/colors.dart';
 
@@ -190,7 +192,7 @@ class PaymentPage extends StatelessWidget {
                   text: 'Share',
                 ),
                 SizedBox(
-                  width: h * 0.06,
+                  width: 80,
                 ),
                 AppButtons(
                   icon: Icons.print,
@@ -198,7 +200,18 @@ class PaymentPage extends StatelessWidget {
                   text: 'Print',
                 ),
               ],
-            )
+            ),
+            SizedBox(
+              height: h * 0.02,
+            ),
+            AppLargeButton(
+              text: 'Done',
+              backgroundColor: Colors.white,
+              textColor: AppColor.mainColor,
+              onTap: () {
+                Get.back();
+              },
+            ),
           ],
         ),
       ),
