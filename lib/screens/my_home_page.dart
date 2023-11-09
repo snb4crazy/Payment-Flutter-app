@@ -48,6 +48,58 @@ class _MyHomePageState extends State<MyHomePage> {
                 spreadRadius: 10,
               )
             ]),
+        child: Container(
+          margin: const EdgeInsets.only(top: 10, left: 10),
+          child: Row(
+            children: [
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(width: 3, color: Colors.grey),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage('images/brand1.png'),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Text ticket #1',
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: AppColor.mainColor,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'ID or HASH for ticket #1',
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: AppColor.idColor,
+                                fontWeight: FontWeight.w700),
+                          )
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
