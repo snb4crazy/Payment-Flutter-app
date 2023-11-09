@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app_from_scratch/screens/my_home_page.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,7 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Payment App',
       theme: ThemeData(
