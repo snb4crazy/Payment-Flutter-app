@@ -20,8 +20,34 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Stack(
           children: [
             _headSection(),
+            _listBills(),
           ],
         ),
+      ),
+    );
+  }
+
+  //22:30 finished
+  _listBills() {
+    return Positioned(
+      top: 320,
+      child: Container(
+        height: 130,
+        width: MediaQuery.of(context).size.width - 20,
+        decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFFd8dbe0),
+                offset: Offset(1, 1),
+                blurRadius: 20,
+                spreadRadius: 10,
+              )
+            ]),
       ),
     );
   }
