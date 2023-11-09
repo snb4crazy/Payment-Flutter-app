@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app_from_scratch/component/colors.dart';
+import 'package:payment_app_from_scratch/widgets/text_size.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -53,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Row(
             children: [
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
@@ -94,9 +96,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ],
+                  ),
+                  SizedText(
+                      text: 'Autopay on DD:MM:YYY', color: AppColor.green),
+                  SizedBox(
+                    height: 5,
                   )
                 ],
-              )
+              ),
             ],
           ),
         ),
