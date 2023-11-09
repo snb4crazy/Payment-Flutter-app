@@ -152,6 +152,30 @@ class PaymentPage extends StatelessWidget {
                   },
                 ),
               ),
+            ),
+            SizedBox(
+              height: h * 0.05,
+            ),
+            Column(
+              children: [
+                Text(
+                  'Total amount',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: AppColor.idColor,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  '\$12345.00',
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: AppColor.mainColor,
+                      fontWeight: FontWeight.w600),
+                )
+              ],
             )
           ],
         ),
