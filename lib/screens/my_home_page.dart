@@ -32,138 +32,147 @@ class _MyHomePageState extends State<MyHomePage> {
   _listBills() {
     return Positioned(
       top: 320,
-      child: Container(
-        height: 130,
-        width: MediaQuery.of(context).size.width - 20,
-        decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(30),
-              bottomRight: Radius.circular(30),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Color(0xFFd8dbe0),
-                offset: Offset(1, 1),
-                blurRadius: 20,
-                spreadRadius: 10,
-              )
-            ]),
-        child: Container(
-          margin: const EdgeInsets.only(top: 10, left: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
+      left: 0,
+      right: 0,
+      bottom: 0,
+      child: ListView.builder(
+        itemCount: 4,
+        itemBuilder: (_, index) {
+          return Container(
+            margin: const EdgeInsets.only(top: 20),
+            height: 130,
+            width: MediaQuery.of(context).size.width - 20,
+            decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFFd8dbe0),
+                    offset: Offset(1, 1),
+                    blurRadius: 20,
+                    spreadRadius: 10,
+                  )
+                ]),
+            child: Container(
+              margin: const EdgeInsets.only(top: 10, left: 10),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(width: 3, color: Colors.grey),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage('images/brand1.png'),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Text ticket #1',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: AppColor.mainColor,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'ID or HASH for ticket #1',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: AppColor.idColor,
+                                    fontWeight: FontWeight.w700),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedText(
+                          text: 'Autopay on DD:MM:YYY', color: AppColor.green),
+                      SizedBox(
+                        height: 5,
+                      )
+                    ],
+                  ),
                   Row(
                     children: [
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(width: 3, color: Colors.grey),
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage('images/brand1.png'),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Container(
+                            width: 80,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: AppColor.selectBackground,
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Select',
+                                style: TextStyle(
+                                    fontSize: 16, color: AppColor.selectColor),
+                              ),
+                            ),
+                          ),
+                          Expanded(child: Container()),
                           Text(
-                            'Text ticket #1',
+                            '\$12345.00',
                             style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 18,
                                 color: AppColor.mainColor,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          Text(
+                            'Due in 48 hours',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: AppColor.idColor,
                                 fontWeight: FontWeight.w700),
                           ),
                           SizedBox(
                             height: 10,
-                          ),
-                          Text(
-                            'ID or HASH for ticket #1',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: AppColor.idColor,
-                                fontWeight: FontWeight.w700),
                           )
                         ],
                       ),
-                    ],
-                  ),
-                  SizedText(
-                      text: 'Autopay on DD:MM:YYY', color: AppColor.green),
-                  SizedBox(
-                    height: 5,
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
                       Container(
-                        width: 80,
-                        height: 30,
+                        width: 5,
+                        height: 35,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: AppColor.selectBackground,
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Select',
-                            style: TextStyle(
-                                fontSize: 16, color: AppColor.selectColor),
+                          color: AppColor.halfOval,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30),
                           ),
                         ),
                       ),
-                      Expanded(child: Container()),
-                      Text(
-                        '\$12345.00',
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: AppColor.mainColor,
-                            fontWeight: FontWeight.w900),
-                      ),
-                      Text(
-                        'Due in 48 hours',
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: AppColor.idColor,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      )
                     ],
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: 5,
-                    height: 35,
-                    decoration: BoxDecoration(
-                      color: AppColor.halfOval,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      ),
-                    ),
                   ),
                 ],
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
