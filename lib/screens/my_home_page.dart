@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 );
               } else {
-                print('return listBills');
+                //print('return listBills');
                 return _listBills();
               }
             }),
@@ -167,6 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     !_controller.list[index]['status'];
                                 _controller.list.refresh();
                                 //print(_controller.list[index]['status']);
+                                print(_controller.newList.length);
                               },
                               child: Container(
                                 width: 80,

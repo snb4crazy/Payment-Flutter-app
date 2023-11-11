@@ -12,6 +12,11 @@ class DataController extends GetxController {
     return _loading;
   }
 
+  get newList {
+    //if status = true, return object
+    return list.where((e) => e['status']).map((e) => e).toList();
+  }
+
   @override
   void onInit() {
     _loadData();
