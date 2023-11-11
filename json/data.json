@@ -1,0 +1,23 @@
+[
+  {
+    "brand": "Bill brand #1",
+    "date": "DD-MM-YYY",
+    "status": false,
+    "due": "123.00",
+    "more": "Pay before DD-MM"
+  },
+  {
+    "brand": "Bill brand #2",
+    "date": "DD-MM-YYY",
+    "status": false,
+    "due": "323.00",
+    "more": "Pay now"
+  },
+  {
+    "brand": "Bill brand #3",
+    "date": "DD-MM-YYY",
+    "status": false,
+    "due": "223.00",
+    "more": "Pay before DD-MM"
+  }
+]
