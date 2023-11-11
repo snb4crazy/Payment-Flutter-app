@@ -28,7 +28,21 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Stack(
           children: [
             _headSection(),
-            _listBills(),
+            Obx(() {
+              if (_controller.loading == false) {
+                print('return CircularProgressIndicator');
+                return Center(
+                  child: Container(
+                    child: CircularProgressIndicator(),
+                    width: 100,
+                    height: 100,
+                  ),
+                );
+              } else {
+                print('return listBills');
+                return _listBills();
+              }
+            }),
             _payButton(),
           ],
         ),
@@ -51,7 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  //22:30 finished
   _listBills() {
     return Positioned(
       top: 320,
@@ -62,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
         removeTop: true,
         context: context,
         child: ListView.builder(
-          itemCount: 4,
+          itemCount: _controller.list.length,
           itemBuilder: (_, index) {
             return Container(
               margin: const EdgeInsets.only(top: 20, right: 20),
@@ -88,6 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
@@ -101,7 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Border.all(width: 3, color: Colors.grey),
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: AssetImage('images/brand1.png'),
+                                  image: AssetImage(
+                                      _controller.list[index]['img']),
                                 ),
                               ),
                             ),
@@ -112,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Text ticket #1',
+                                  _controller.list[index]['brand'],
                                   style: TextStyle(
                                       fontSize: 16,
                                       color: AppColor.mainColor,
@@ -122,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   height: 10,
                                 ),
                                 Text(
-                                  'ID or HASH for ticket #1',
+                                  _controller.list[index]['paymentId'],
                                   style: TextStyle(
                                       fontSize: 16,
                                       color: AppColor.idColor,
@@ -133,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         SizedText(
-                            text: 'Autopay on DD:MM:YYY',
+                            text: _controller.list[index]['more'],
                             color: AppColor.green),
                         SizedBox(
                           height: 5,
@@ -145,25 +160,30 @@ class _MyHomePageState extends State<MyHomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              width: 80,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: AppColor.selectBackground,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Select',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: AppColor.selectColor),
+                            GestureDetector(
+                              onTap: () {
+                                print('tapped');
+                              },
+                              child: Container(
+                                width: 80,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: AppColor.selectBackground,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'Select',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: AppColor.selectColor),
+                                  ),
                                 ),
                               ),
                             ),
                             Expanded(child: Container()),
                             Text(
-                              '\$12345.00',
+                              '\$' + _controller.list[index]['due'],
                               style: TextStyle(
                                   fontSize: 18,
                                   color: AppColor.mainColor,
