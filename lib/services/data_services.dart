@@ -5,6 +5,8 @@ class DataServices {
   Future<List<dynamic>> getUsers() async {
     var info = rootBundle.loadString('json/data.json');
     var list = json.decode(await info);
-    return list.map((e) => e).toList();
+    return Future.delayed(
+        const Duration(seconds: 2), () => list.map((e) => e).toList());
+    //return ;
   }
 }
