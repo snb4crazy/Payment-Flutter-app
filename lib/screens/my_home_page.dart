@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app_from_scratch/component/colors.dart';
+import 'package:payment_app_from_scratch/controllers/data_controller.dart';
 import 'package:payment_app_from_scratch/screens/payment_page.dart';
 import 'package:payment_app_from_scratch/widgets/buttons.dart';
 import 'package:payment_app_from_scratch/widgets/large_button.dart';
@@ -14,8 +15,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final DataController _controller = Get.put(DataController());
   @override
   Widget build(BuildContext context) {
+    print(_controller.list);
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
