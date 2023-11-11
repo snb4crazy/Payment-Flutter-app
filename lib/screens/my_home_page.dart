@@ -162,21 +162,30 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                print('tapped');
+                                //print('tapped');
+                                _controller.list[index]['status'] =
+                                    !_controller.list[index]['status'];
+                                _controller.list.refresh();
+                                //print(_controller.list[index]['status']);
                               },
                               child: Container(
                                 width: 80,
                                 height: 30,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
-                                  color: AppColor.selectBackground,
+                                  color: _controller.list[index]['status']
+                                      ? AppColor.green
+                                      : AppColor.selectBackground,
                                 ),
                                 child: Center(
                                   child: Text(
                                     'Select',
                                     style: TextStyle(
-                                        fontSize: 16,
-                                        color: AppColor.selectColor),
+                                      fontSize: 16,
+                                      color: _controller.list[index]['status']
+                                          ? Colors.white
+                                          : AppColor.selectColor,
+                                    ),
                                   ),
                                 ),
                               ),
