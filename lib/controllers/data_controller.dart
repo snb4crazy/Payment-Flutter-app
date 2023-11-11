@@ -6,6 +6,12 @@ class DataController extends GetxController {
   //.obs - observable in Getx
   var list = [].obs;
   final service = DataServices();
+  var _loading = false.obs;
+
+  get loading {
+    return _loading;
+  }
+
   @override
   void onInit() {
     _loadData();
@@ -13,7 +19,15 @@ class DataController extends GetxController {
   }
 
   _loadData() async {
-    var info = service.getUsers();
-    list.addAll(await info);
+    try {
+      _loading.value = false;
+      var info = service.getUsers();
+      list.addAll(await info);
+    } catch (e) {
+      print('Excpeption _loadData');
+      print(e);
+    } finally {
+      _loading.value = true;
+    }
   }
 }
