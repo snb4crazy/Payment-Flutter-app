@@ -114,10 +114,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                 border:
                                     Border.all(width: 3, color: Colors.grey),
                                 image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image:
-                                      AssetImage(_controller.list[index].img),
-                                ),
+                                    fit: BoxFit.cover,
+                                    image:
+                                        //AssetImage(_controller.list[index].img),
+                                        NetworkImage('http://host/assets/' +
+                                            _controller
+                                                .list[index].brand_logo)),
                               ),
                             ),
                             SizedBox(
@@ -137,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   height: 10,
                                 ),
                                 Text(
-                                  _controller.list[index].due_info,
+                                  'ID${_controller.list[index].id}',
                                   style: TextStyle(
                                       fontSize: 16,
                                       color: AppColor.idColor,
