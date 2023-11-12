@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:payment_app_from_scratch/models/data_model.dart';
 import 'package:payment_app_from_scratch/services/data_services.dart';
 
 class DataController extends GetxController {
   //.obs - observable in Getx
-  var list = [].obs;
+  RxList<DataModel> list = <DataModel>[].obs;
   final service = DataServices();
   var _loading = false.obs;
 
@@ -14,7 +15,10 @@ class DataController extends GetxController {
 
   get newList {
     //if status = true, return object
-    return list.where((e) => e['status']).map((e) => e).toList();
+    return list
+        .where((e) => e.status == 0 ? false : true)
+        .map((e) => e)
+        .toList();
   }
 
   @override
