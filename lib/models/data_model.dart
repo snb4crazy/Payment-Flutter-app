@@ -12,7 +12,10 @@ class DataModel {
       required this.due_info,
       required this.img});
   factory DataModel.fromJson(Map<String, dynamic> json) => DataModel(
-        brand_logo: json['brand_logo'],
+        //empty json['brand_logo'] - set default image or 'No image logo, put default'
+        brand_logo: json['brand_logo'] == null
+            ? 'images/brand1.png'
+            : json['brand_logo'],
         brand_name: json['brand_name'],
         status: json['status'],
         due_info: json['due_info'].toString(),
