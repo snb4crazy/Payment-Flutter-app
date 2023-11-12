@@ -115,8 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Border.all(width: 3, color: Colors.grey),
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
-                                  image: AssetImage(
-                                      _controller.list[index]['img']),
+                                  image:
+                                      AssetImage(_controller.list[index].img),
                                 ),
                               ),
                             ),
@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  _controller.list[index]['brand'],
+                                  _controller.list[index].brand_name,
                                   style: TextStyle(
                                       fontSize: 16,
                                       color: AppColor.mainColor,
@@ -137,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   height: 10,
                                 ),
                                 Text(
-                                  _controller.list[index]['paymentId'],
+                                  _controller.list[index].due_info,
                                   style: TextStyle(
                                       fontSize: 16,
                                       color: AppColor.idColor,
@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         SizedText(
-                            text: _controller.list[index]['more'],
+                            text: _controller.list[index].due_info,
                             color: AppColor.green),
                         SizedBox(
                           height: 5,
@@ -163,8 +163,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             GestureDetector(
                               onTap: () {
                                 //print('tapped');
-                                _controller.list[index]['status'] =
-                                    !_controller.list[index]['status'];
+                                if (_controller.list[index].status == 0) {
+                                  _controller.list[index].status = 1;
+                                } else {
+                                  _controller.list[index].status = 0;
+                                }
                                 _controller.list.refresh();
                                 //print(_controller.list[index]['status']);
                                 print(_controller.newList.length);
@@ -174,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 30,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
-                                  color: _controller.list[index]['status']
+                                  color: _controller.list[index].status == 1
                                       ? AppColor.green
                                       : AppColor.selectBackground,
                                 ),
@@ -183,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     'Select',
                                     style: TextStyle(
                                       fontSize: 16,
-                                      color: _controller.list[index]['status']
+                                      color: _controller.list[index].status == 1
                                           ? Colors.white
                                           : AppColor.selectColor,
                                     ),
@@ -193,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Expanded(child: Container()),
                             Text(
-                              '\$' + _controller.list[index]['due'],
+                              '\$' + _controller.list[index].due_info,
                               style: TextStyle(
                                   fontSize: 18,
                                   color: AppColor.mainColor,
